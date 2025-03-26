@@ -139,6 +139,16 @@ function ret_token_factory_w_alt(token: Token, token_alt: Token): (ui: CalcUi) =
 	}
 }
 
+function sqrt_btn_token_factory(): (ui: CalcUi) => Token {
+	return function (ui) {
+		if (!ui.state.alt_state) {
+			return ret_token_factory_w_inv(TOKEN_SQRT, TOKEN_POW_2)(ui);
+		} else {
+			return ret_token_factory_w_inv(TOKEN_CBRT, TOKEN_POW_3)(ui);
+		}
+	}
+}
+
 function var_token_factory(var_btn_num: number): (ui: CalcUi) => Token {
 	// TODO make this always point to some of the last used variables,
 	// defined in ui.state
@@ -184,7 +194,9 @@ const TOKEN_PAR_R    = { str : ")",             type : TokenType.PAREN_CLOSE };
 const TOKEN_NEG      = { str : "-",             type : TokenType.DIGIT };
 const TOKEN_DIV      = { str : "/",             type : TokenType.OP };
 const TOKEN_SQRT     = { str : "sqrt(",         type : TokenType.FUNC_CALL };
+const TOKEN_CBRT     = { str : "cbrt(",         type : TokenType.FUNC_CALL };
 const TOKEN_POW_2    = { str : "^2",            type : TokenType.OTHER };
+const TOKEN_POW_3    = { str : "^3",            type : TokenType.OTHER };
 const TOKEN_E        = { str : "e",             type : TokenType.VAR };
 const TOKEN_THETA    = { str : "theta",         type : TokenType.VAR };
 const TOKEN_7        = { str : "7",             type : TokenType.DIGIT };
@@ -234,7 +246,7 @@ BTN_ID_TO_GET_TOKEN_FUNC.set("btn_delim",  ret_token_factory(TOKEN_DELIM));
 BTN_ID_TO_GET_TOKEN_FUNC.set("btn_unary_neg",  ret_token_factory(TOKEN_NEG));
 BTN_ID_TO_GET_TOKEN_FUNC.set("btn_par_r",  ret_token_factory(TOKEN_PAR_R));
 BTN_ID_TO_GET_TOKEN_FUNC.set("btn_div",    ret_token_factory(TOKEN_DIV));
-BTN_ID_TO_GET_TOKEN_FUNC.set("btn_sqrt",   ret_token_factory_w_inv(TOKEN_SQRT, TOKEN_POW_2));
+BTN_ID_TO_GET_TOKEN_FUNC.set("btn_sqrt",   sqrt_btn_token_factory());
 BTN_ID_TO_GET_TOKEN_FUNC.set("btn_e",      ret_token_factory_w_alt(TOKEN_E, TOKEN_THETA));
 BTN_ID_TO_GET_TOKEN_FUNC.set("btn_7",      ret_token_factory(TOKEN_7));
 BTN_ID_TO_GET_TOKEN_FUNC.set("btn_8",      ret_token_factory(TOKEN_8));
@@ -331,13 +343,26 @@ function update_other_btns(ui: CalcUi) {
 	}
 
 	if (!ui.state.inv_state) {
+		if (!ui.state.alt_state) {
+			ui.btn_sqrt.innerHTML = "sqrt(";
+		} else {
+			ui.btn_sqrt.innerHTML = "cbrt(";
+		}
+	} else {
+		if (!ui.state.alt_state) {
+			ui.btn_sqrt.innerHTML = "x<sup>2</sup>";
+		} else {
+			ui.btn_sqrt.innerHTML = "x<sup>3</sup>";
+		}
+	}
+
+
+	if (!ui.state.inv_state) {
 		ui.btn_log.innerHTML  = "log<sub>10</sub>";
 		ui.btn_ln.innerHTML   = "ln";
-		ui.btn_sqrt.innerHTML = "sqrt(";
 	} else {
 		ui.btn_log.innerHTML  = "10<sup>x</sup>";
 		ui.btn_ln.innerHTML   = "e<sup>x</sup>";
-		ui.btn_sqrt.innerHTML = "x<sup>2</sup>";
 	}
 
 	if (!ui.state.polar_state) {
