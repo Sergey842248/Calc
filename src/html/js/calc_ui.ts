@@ -3,6 +3,8 @@ import {CalcUi, CalcUnitSel, CalcParams, InputTokenT, CalcData, CalcState, CalcO
 
 declare const ui: CalcUi;
 
+const LOCAL_STORAGE_ID_THEME_SEL = "colour_theme_sel"
+
 export declare function set_on_tex_ready(callback: (raw_input: string, tex: string) => void): void;
 export declare function calc_ui_unit_sel_set_visible(unit_sel: CalcUnitSel, is_visible: boolean): void;
 export declare function init_unit_sel(unit_sel: CalcUnitSel): void;
@@ -1059,25 +1061,33 @@ function init_ui_throws(ui: CalcUi) {
 	ui.checkbox_show_raw.checked = ui.state.show_raw_calc_io
 	ui.checkbox_show_raw.addEventListener('click', function (e: Event) { toggle_show_raw(ui) });
 
-	let darkMatch;
-	if (window.matchMedia) {
-		darkMatch = window.matchMedia("(prefers-color-scheme: dark)");
+	const stored_user_theme_sel = window.localStorage[LOCAL_STORAGE_ID_THEME_SEL];
+
+	if (stored_user_theme_sel) {
+		ui.selected_theme = stored_user_theme_sel;
+	} else {
+		let darkMatch;
+		if (window.matchMedia) {
+			darkMatch = window.matchMedia("(prefers-color-scheme: dark)");
+		}
+
+		if (darkMatch && darkMatch.matches) {
+			ui.selected_theme = "dark";
+		} else if (check_forced_dark_mode()) {
+			console.log("User has #force-dark-mode enabled, but not ('prefers-color-scheme: dark)!!!");
+			ui.selected_theme = "dark";
+		}
+		console.debug("OS default for dark mode is: ", ui.selected_theme);
 	}
 
-	if (darkMatch && darkMatch.matches) {
-		ui.selected_theme = "dark";
-	} else if (check_forced_dark_mode()) {
-		console.log("User has #force-dark-mode enabled, but not ('prefers-color-scheme: dark)!!!");
-		ui.selected_theme = "dark";
-	}
-
-	
-	console.debug("OS default for dark mode is: ", ui.selected_theme);
 	set_dark_mode_select(ui, ui.selected_theme);
+
 	set_theme(ui, ui.selected_theme);
 	ui.dark_mode_select.addEventListener('change', function (e: Event) {
 		const e_target = e.target as HTMLInputElement;
-		set_theme(ui, e_target.value);
+		const selected_theme = e_target.value;
+		window.localStorage[LOCAL_STORAGE_ID_THEME_SEL] = selected_theme;
+		set_theme(ui, selected_theme);
 	});
 
 	for (let info of ui_btn_handlers) {
