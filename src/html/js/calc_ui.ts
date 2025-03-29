@@ -1,5 +1,6 @@
 //import {CalcUi, ui, set_on_tex_ready, calc_ui_unit_sel_set_visible, init_unit_sel, alexcalc_unit_referenced} from './calc_types.js';
 import {CalcUi, CalcUnitSel, CalcParams, InputTokenT, CalcData, CalcState, CalcOutput} from './calc_types.js';
+import { set_colour_adjuster_pane_visible } from './colour_sel_ui.js';
 
 declare const ui: CalcUi;
 
@@ -973,6 +974,7 @@ const SUPPORTED_THEMES = [
 	"blue2",
 	"monochrome1",
 	"monochrome1-w-red",
+	"custom-colours",
 ];
 
 function ary_includes(ary: string[], val: string): boolean {
@@ -984,12 +986,17 @@ function ary_includes(ary: string[], val: string): boolean {
 	return false;
 }
 
-function set_theme(ui: CalcUi, theme: string) {
+export function set_theme(ui: CalcUi, theme: string, is_init?: boolean) {
 	console.debug("Setting theme to ", theme);
 	if (!ary_includes(SUPPORTED_THEMES,theme)) {
 		console.error("unsupported theme", theme);
 		return;
 	}
+
+	if (!is_init && theme == "custom-colours") {
+		set_colour_adjuster_pane_visible(true);
+	}
+
 	document.body.classList.add(theme);
 	for (let old_theme of SUPPORTED_THEMES) {
 		if (old_theme != theme) {
@@ -1082,7 +1089,7 @@ function init_ui_throws(ui: CalcUi) {
 
 	set_dark_mode_select(ui, ui.selected_theme);
 
-	set_theme(ui, ui.selected_theme);
+	set_theme(ui, ui.selected_theme, true);
 	ui.dark_mode_select.addEventListener('change', function (e: Event) {
 		const e_target = e.target as HTMLInputElement;
 		const selected_theme = e_target.value;
