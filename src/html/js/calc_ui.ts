@@ -964,6 +964,13 @@ const SUPPORTED_THEMES = [
 	"light",
 	"dark",
 	"very_dark",
+	"blue-w-orange",
+	"colourful1",
+	"colourful-muted",
+	"blue1",
+	"blue2",
+	"monochrome1",
+	"monochrome1-w-red",
 ];
 
 function ary_includes(ary: string[], val: string): boolean {
@@ -993,7 +1000,7 @@ function set_theme(ui: CalcUi, theme: string) {
 		data_color_scheme_val = "light";
 	} else if (theme == "dark" || theme == "very_dark") {
 		data_color_scheme_val = "dark";
-	} else {
+	} else if (SUPPORTED_THEMES.indexOf(theme) === -1) {
 		console.warn("Unhandled color scheme", theme);
 	}
 
