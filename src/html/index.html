@@ -1005,7 +1005,10 @@
 			 *   - "stylesheets": a list of corresponding stylesheets.
 			 *
 			 */
-			output_display_refs: [],
+			output_display_refs: [
+				{ elem: document.getElementById("wasm_loading_msg"),        stylesheets: [] },
+				{ elem: document.getElementById("calc_terms_notice_small"), stylesheets: [] },
+			],
 
 			// returns an object that will be passed to it again for clean up
 			// if this line of the output display is removed.
@@ -1084,6 +1087,7 @@
 				output_element.innerHTML = msg; // TODO HTML escape this
 				ui.output_text.appendChild(output_element);
 				ui.output_disp_scroll_to_bottom();
+				ui.output_display_refs.push({ elem: output_element, stylesheets: [] });
 			},
 
 			output_disp_scroll_to_bottom: function() {
