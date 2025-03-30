@@ -37,7 +37,11 @@
 	<!-- For LaTeX support -->
 	<!--<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>-->
 
-	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>
+
+	<!-- Loading this script here doesn't always seem to initialize it correctly.
+	     Instead a <script/> element is created in javascript, which seems to work.
+	     More context: https://github.com/alexbarry/AlexCalc/issues/31 -->
+	<!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script> -->
 	<title>AlexCalc</title>
 
 	<style>
@@ -779,6 +783,18 @@
 				fontCache: 'global',
 			}
 		};
+
+		// When loading the script as a script element in head,
+		// sometimes on browser restart this script doesn't seem to initialize
+		// correctly.
+		// I wasn't able to reproduce this in a minimal example.
+		// For now, this workaround seems to fix it.
+		// More context: https://github.com/alexbarry/AlexCalc/issues/31
+		let script = document.createElement('script');
+		script.id = 'MathJax-script';
+		script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js';
+		script.async = false;
+		document.head.appendChild(script);
 
 		//let promise = Promise.resolve();
 		//function mathjax_typeset(code) {
