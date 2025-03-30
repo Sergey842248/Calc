@@ -186,6 +186,11 @@ public class CalcButtonsHelper {
 		TokenInfo tanh  = new TokenInfo(TokenType.FUNC_CALL, "tanh(");
 		TokenInfo atanh = new TokenInfo(TokenType.FUNC_CALL, "atanh(");
 
+		TokenInfo sqrt  = new TokenInfo(TokenType.FUNC_CALL, "sqrt(");
+		TokenInfo pow2  = new TokenInfo(TokenType.OTHER,     "^2");
+		TokenInfo cbrt  = new TokenInfo(TokenType.FUNC_CALL, "cbrt(");
+		TokenInfo pow3  = new TokenInfo(TokenType.OTHER,     "^3");
+
 		// TODO these "TokenInfo" classes should also contain the button label, rather than having
 		// two separate maps for both
         button_id_to_token_func.put(ButtonId.LOG10,         getTokenInv(new TokenInfo(TokenType.FUNC_CALL, "log("), new TokenInfo(TokenType.OTHER, "10^(")));
@@ -202,7 +207,7 @@ public class CalcButtonsHelper {
         button_id_to_token_func.put(ButtonId.DELIM,         getTokenStateless(new TokenInfo(TokenType.OTHER,",")));
         button_id_to_token_func.put(ButtonId.RPAREN,        getTokenStateless(new TokenInfo(TokenType.PAREN_CLOSE,")")));
         button_id_to_token_func.put(ButtonId.DIV,           getTokenStateless(new TokenInfo(TokenType.OP,"/")));
-        button_id_to_token_func.put(ButtonId.SQRT,          getTokenInv(new TokenInfo(TokenType.FUNC_CALL,"sqrt("), new TokenInfo(TokenType.OTHER,"^2")));
+        button_id_to_token_func.put(ButtonId.SQRT,          getTokenInvAlt(sqrt, pow2, cbrt, pow3));
         button_id_to_token_func.put(ButtonId.MULT,          getTokenStateless(new TokenInfo(TokenType.OP,"*")));
         button_id_to_token_func.put(ButtonId.VAR1,          getTokenAlt(new TokenInfo(TokenType.VAR,"x"), new TokenInfo(TokenType.VAR,"y")));
         button_id_to_token_func.put(ButtonId.PI,            getTokenAlt(new TokenInfo(TokenType.VAR,"pi"), new TokenInfo(TokenType.VAR,"z")));
@@ -236,7 +241,7 @@ public class CalcButtonsHelper {
 		button_id_to_display_txt_func.put(ButtonId.COS,           getStringInv("cos", "acos"));
 		button_id_to_display_txt_func.put(ButtonId.TAN,           getStringInv("tan", "atan"));
         button_id_to_display_txt_func.put(ButtonId.LN,            getStringInv("ln", "e^x"));
-        button_id_to_display_txt_func.put(ButtonId.SQRT,          getStringInv("sqrt", "x^2"));
+        button_id_to_display_txt_func.put(ButtonId.SQRT,          getStringInvAlt("sqrt", "x^2", "cbrt", "x^3"));
         button_id_to_display_txt_func.put(ButtonId.VAR1,          getStringAlt("x", "y"));
         button_id_to_display_txt_func.put(ButtonId.PI,            getStringAlt("pi", "z"));
         button_id_to_display_txt_func.put(ButtonId.E,             getStringAlt("e", "theta"));
