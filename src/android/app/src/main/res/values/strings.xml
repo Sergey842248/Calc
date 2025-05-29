@@ -128,17 +128,14 @@
 	<string name="about_title">About Calc</string>
 
 	<string name="about_text_html">
-		&lt;p>Created by Alex Barry.&lt;/p>
-		&lt;p>Available as a web app at &lt;a href="https://alexbarry.github.io/AlexCalc/">https://alexbarry.github.io/AlexCalc/&lt;a>&lt;/p>
-		&lt;p>Available on the Google Play Store and F-Droid, search for "AlexCalc".&lt;/p>
-		&lt;p>Source available at &lt;a href="https://github.com/alexbarry/AlexCalc/">github.com/alexbarry/AlexCalc&lt;a>&lt;/p>
-		&lt;p>Please submit comments, feedback, feature requests, or discussions to:
+		&lt;p>Created by Alex Barry. Forked, reworked and improved by Sergey.&lt;/p>
 		&lt;ul>
-		    &lt;li>&lt;strong>Github&lt;/strong>: &lt;a href="https://github.com/alexbarry/AlexCalc">https://github.com/alexbarry/AlexCalc
+		    &lt;li>&lt;strong>Web-App&lt;/strong>: &lt;a href="https://alexbarry.github.io/AlexCalc">https://alexbarry.github.io/AlexCalc
 &lt;/a>&lt;/li>
-			&lt;li>&lt;strong>Discord&lt;/strong>: &lt;a href="https://discord.gg/ckNstZc2nF" style="font-family:monospace">discord.gg/ckNstZc2nF&lt;/a>&lt;/li>
-			&lt;li>&lt;strong>Email&lt;/strong>: &lt;a href="mailto:alexbarry.dev2@gmail.com" style="font-family:monospace">alexbarry.dev2@gmail.com&lt;/a>&lt;/li>
-			&lt;li>&lt;strong>Matrix&lt;/strong>: &lt;a href="https://matrix.to/#/#alexcalc:matrix.org" style="font-family:monospace">#alexcalc:matrix.org&lt;/a>&lt;/li>
+		&lt;/ul>
+		&lt;ul>
+		    &lt;li>&lt;strong>Github&lt;/strong>: &lt;a href="https://github.com/Sergey842248/Calc">https://github.com/Sergey842248/Calc
+&lt;/a>&lt;/li>
 		&lt;/ul>
 		&lt;/p>
 		&lt;br/>
@@ -150,7 +147,7 @@ Source-Code and releases available at https://github.com/Sergey842248/Calc/ \n
 Please submit comments, feedback, feature requests, or discussions to:\n
   Github: https://github.com/Sergey842248/Calc \n
 
-Terms of use: THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. \n
+Notice: THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. \n
 	</string>
 	<string name="open_source_licenses_title">Open Source Licenses</string>
 	<string name="show_licenses">Show Licenses</string>
