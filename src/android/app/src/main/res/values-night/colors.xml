@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1B246E</color>
-    <color name="colorPrimaryDark">#1A1F4A</color>
+    <color name="colorPrimary">#181818</color>
+    <color name="colorPrimaryDark">#181818</color>
     <!-- This is used for the active radio button colour,
          and the text cursor when using the keyboard (soft or real),
          and there's an underline with this colour under the active edit text -->

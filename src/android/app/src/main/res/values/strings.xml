@@ -145,15 +145,10 @@
 		&lt;p>&lt;strong>Terms of use:&lt;/strong> &lt;span style="font-family:monospace">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.&lt;span>&lt;p>
 	</string>
 	<string name="about_text_raw">
-Created by Alex Barry.\n
-Available as a web app at https://alexbarry.github.io/AlexCalc/ \n
-Available on the Google Play Store and F-Droid, search for "AlexCalc". \n
-Source available at https://github.com/alexbarry/AlexCalc/ \n
+Created by Alex Barry. Forked, reworked and improved by Sergey \n
+Source-Code and releases available at https://github.com/Sergey842248/Calc/ \n
 Please submit comments, feedback, feature requests, or discussions to:\n
-  Github: https://github.com/alexbarry/AlexCalc \n
-  Discord: https://discord.gg/ckNstZc2nF \n
-  Email: alexbarry.dev2@gmail.com \n
-  Matrix: https://matrix.to/#/#alexcalc:matrix.org \n
+  Github: https://github.com/Sergey842248/Calc \n
 
 Terms of use: THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. \n
 	</string>
