@@ -225,12 +225,14 @@ public class PersistentStateDbHelper {
             String texOutput = cursor.getString(3);
             String outputTypeStr = cursor.getString(4);
 
+            Log.d(TAG, String.format("getInputs: txtInputStr from DB: \"%s\"", txtInputStr));
+
             CalcHistoryHelper.HistoryEntry entry = new CalcHistoryHelper.HistoryEntry();
 
             try {
                 entry.inputTokens = PersistentStateFileHelper.inputTokensToJsonStr(txtInputStr);
             } catch (JSONException ex) {
-                Log.e(TAG, String.format("error parsing json token str \"%s\"", txtInputStr));
+                Log.e(TAG, String.format("error parsing json token str \"%s\"", txtInputStr), ex);
                 continue;
             }
 

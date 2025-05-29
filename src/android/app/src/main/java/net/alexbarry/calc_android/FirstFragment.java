@@ -366,7 +366,6 @@ public class FirstFragment extends Fragment {
 				}
 				flushErrs();
 				calcOutputDisplayHelper.setReady();
-				calcOutputDisplayHelper.addOutputLineMsg(context.getString(R.string.small_msg_terms));
 			}
 		});
         this.calcInputHelper = new CalcInputHelper();
