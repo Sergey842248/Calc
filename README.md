@@ -1,19 +1,12 @@
-# AlexCalc
+# Calc
 
 Try the web version here: https://alexbarry.github.io/AlexCalc/
 
 Available on:
 * **Web (desktop or mobile)**: https://alexbarry.github.io/AlexCalc/
-* **Android**: [Google Play](https://play.google.com/store/apps/details?id=net.alexbarry.calc_android), [F-Droid](https://f-droid.org/packages/net.alexbarry.calc_android/)
+* **Android**: [GitHub](https://github.com/Sergey842248/Calc/releases/latest)
 * **iOS**: No native app yet, but for now here's [how to add a home screen shortcut to the browser version on iOS](https://alexbarry.github.io/AlexCalc/add_to_ios_home.html).
 
-[<img src="src/graphics/GetItOnGooglePlay_Badge_Web_color_English.png"
-     alt="Get it on Google Play"
-     height="80">](https://play.google.com/store/apps/details?id=net.alexbarry.calc_android)
-
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-     alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/net.alexbarry.calc_android/)
 
 ## How to use
 
@@ -64,11 +57,7 @@ src/android/app/build/outputs/apk/universal/debug/app-universal-debug.apk
 ## Discussion
 
 Please submit comments, feedback, feature requests, or discussions to:
-* Github: https://github.com/alexbarry/AlexCalc
-* Reddit: [reddit.com/r/AlexCalc](https://www.reddit.com/r/alexcalc/)
-* Discord: [discord.gg/ckNstZc2nF](https://discord.gg/ckNstZc2nF)
-* Email: `alexbarry.dev2 [ at ] gmail.com`
-* Matrix: [`#alexcalc:matrix.org`](https://matrix.to/#/#alexcalc:matrix.org)
+* Github: https://github.com/Sergey842248/Calc
 
 ## How it works
 
