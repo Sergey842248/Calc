@@ -4,7 +4,7 @@ Try the web version here: https://alexbarry.github.io/AlexCalc/
 
 Available on:
 * **Web (desktop or mobile)**: https://alexbarry.github.io/AlexCalc/
-* **Android**: [Google Play](https://github.com/Sergey842248/Calc/releases/latest)
+* **Android**: [GitHub](https://github.com/Sergey842248/Calc/releases/latest)
 * **iOS**: No native app yet, but for now here's [how to add a home screen shortcut to the browser version on iOS](https://alexbarry.github.io/AlexCalc/add_to_ios_home.html).
 
 
