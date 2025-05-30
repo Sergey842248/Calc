@@ -20,6 +20,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -246,6 +249,7 @@ public class FirstFragment extends Fragment {
 	public void onCreate(Bundle bundle) {
 		Log.d(TAG, "onCreate");
 		super.onCreate(bundle);
+		setHasOptionsMenu(true); // Indicate that this fragment has options menu items
 		this.dbHelper = new PersistentStateDbHelper(getContext());
 	}
 
@@ -294,6 +298,28 @@ public class FirstFragment extends Fragment {
     ) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_first, container, false);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_main, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_clear_history) {
+            calcOutputDisplayHelper.clearOutputDisplay();
+            try {
+                dbHelper.clearHistoryEntries(0); // Assuming 0 clears all history
+                calcHistoryHelper.clearHistory(); // Clear in-memory history
+            } catch (Exception e) {
+                Log.e(TAG, "Error clearing history from menu: " + e.getMessage());
+            }
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -370,8 +396,28 @@ public class FirstFragment extends Fragment {
 		});
         this.calcInputHelper = new CalcInputHelper();
         // TODO clean up. Just testing for now
-        this.calcButtonsHelper = new CalcButtonsHelper(buttonCallback);
+		this.calcButtonsHelper = new CalcButtonsHelper(buttonCallback);
 		this.calcButtonsHelper.viewReady(getContext(), view);
+
+		// Removed the clear history button from here as it's now a menu item
+		// Button clearHistoryButton = view.findViewById(R.id.button_clear_history);
+		// if (clearHistoryButton != null) {
+		// 	clearHistoryButton.setOnClickListener(new View.OnClickListener() {
+		// 		@Override
+		// 		public void onClick(View v) {
+		// 			calcOutputDisplayHelper.clearOutputDisplay();
+		// 			try {
+		// 				dbHelper.clearHistoryEntries(0); // Assuming 0 clears all history
+		// 				calcHistoryHelper.clearHistory(); // Clear in-memory history
+		// 			} catch (Exception e) {
+		// 				Log.e(TAG, "Error clearing history: " + e.getMessage());
+		// 				// Optionally, show a toast message to the user
+		// 				// Toast.makeText(getContext(), "Error clearing history", Toast.LENGTH_SHORT).show();
+		// 			}
+		// 		}
+		// 	});
+		// }
+
 		this.varPopupHelper.init(requireActivity());
 		this.unitSelectorHelper.init(requireActivity());
 

@@ -13,6 +13,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 	<string name="clear">clear</string>
+	<string name="clear_history">clear hist</string>
 	<string name="clear_screen">clear scrn</string>
 	<string name="bksp">bksp</string>
 	<string name="delete">del</string>

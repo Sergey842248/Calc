@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="net.alexbarry.calc_android.MainActivity">
     <item
+        android:id="@+id/action_clear_history"
+        android:orderInCategory="90"
+        android:title="@string/clear_history"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel" />
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"

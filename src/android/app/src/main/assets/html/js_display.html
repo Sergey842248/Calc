@@ -67,13 +67,14 @@
         }
 
 		function add_latex_node_to_parent_promise(tex, arg_parent) {
-			MathJax.texReset();
+			// Removed MathJax.texReset() as it was causing "Uncaught TypeError: MathJax.texReset is not a function"
 			var options = MathJax.getMetricsFor(arg_parent);
 			options.scale = 2.0;
 			return MathJax.tex2chtmlPromise(tex, options).then( (node) => {
 					arg_parent.appendChild(node);
 					MathJax.startup.document.clear();
 					MathJax.startup.document.updateDocument();
+                    return node; // Return the node so it can be used in the next .then()
 			});
 		}
 
@@ -98,7 +99,8 @@
             output_text_window.appendChild(output.elem);
             document.head.appendChild(output.stylesheet);
 */
-			add_latex_node_to_parent_promise(tex, output_text_window).then( () => {
+			add_latex_node_to_parent_promise(tex, output_text_window).then( (node) => {
+                output_elems.push({ elem: node, stylesheets: [] }); // Add the node to output_elems
 				remove_output_display_elems(MAX_ELEMS);
 				scroll_to_bottom();
 			});
@@ -166,7 +168,8 @@
             input_wip_display.appendChild(output.elem);
             document.head.appendChild(output.stylesheet);
 			*/
-			add_latex_node_to_parent_promise(tex, input_wip_display).then(() => {
+			add_latex_node_to_parent_promise(tex, input_wip_display).then((node) => {
+                wip_elems.push({ elem: node, stylesheets: [] }); // Add the node to wip_elems
 				scroll_to_bottom();
 			});
         }
