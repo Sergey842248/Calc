@@ -27,7 +27,7 @@ android {
     ndkVersion '21.2.6472646'
 
     defaultConfig {
-        applicationId "net.sergey842248.calc"
+        applicationId "net.alexbarry.calc_android"
         minSdkVersion 23
         targetSdkVersion 34
         versionCode 10
