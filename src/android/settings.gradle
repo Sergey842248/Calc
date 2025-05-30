@@ -1,2 +1,2 @@
-rootProject.name='AlexCalc'
+rootProject.name='Calc'
 include ':app'
