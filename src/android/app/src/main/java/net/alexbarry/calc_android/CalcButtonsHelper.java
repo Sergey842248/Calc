@@ -3,6 +3,7 @@ package net.alexbarry.calc_android;
 import android.content.Context;
 import android.telecom.Call;
 import android.util.Log;
+import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.Button;
 
@@ -42,6 +43,12 @@ public class CalcButtonsHelper {
 		SET_DEGREES,
 		SET_RADIANS,
     }
+
+	public enum HapticSetting {
+		FOLLOW_SYSTEM,
+		ENABLED,
+		DISABLED,
+	}
 
 	public interface ButtonCallback {
 		public void onEvent(CallbackEvent event);
@@ -121,6 +128,8 @@ public class CalcButtonsHelper {
     private Context context;
     private View view;
     private ButtonCallback callback;
+
+	private HapticSetting hapticSetting = HapticSetting.FOLLOW_SYSTEM;
 
     public CalcButtonsHelper(ButtonCallback callback) {
         this.callback = callback;
@@ -276,9 +285,23 @@ public class CalcButtonsHelper {
 		for (final ButtonId internal_btn_id : button_id_to_android_layout_elem_id.keySet()) {
 			Integer android_btn_id = button_id_to_android_layout_elem_id.get(internal_btn_id);
 			Button btn = (Button)view.findViewById(android_btn_id);
+			if (hapticSetting != HapticSetting.DISABLED) {
+				btn.setHapticFeedbackEnabled(true);
+			}
 			btn.setOnClickListener(new View.OnClickListener() {
 			    @Override
 				public void onClick(View v) {
+					if (hapticSetting != HapticSetting.DISABLED) {
+						int flags = 0;
+						switch (hapticSetting) {
+							case ENABLED: flags = HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING; break;
+
+							// May not need this, but I can't figure out how to enable the global setting
+							// on my phone
+							case FOLLOW_SYSTEM: flags = HapticFeedbackConstants.FLAG_IGNORE_VIEW_SETTING; break;
+						}
+						v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY, flags);
+					}
 					handleButtonEvent(internal_btn_id);
 				}
 			});
@@ -543,6 +566,11 @@ public class CalcButtonsHelper {
 		Button btn = (Button)view.findViewById(android_btn_id);
 		String btnText = context.getString(android_string_id);
 		btn.setText(btnText);
+	}
+
+	public void setHapticSetting(HapticSetting hapticSetting) {
+		Log.i(TAG, String.format("setHapticSetting is now %s", hapticSetting));
+		this.hapticSetting = hapticSetting;
 	}
 
 }

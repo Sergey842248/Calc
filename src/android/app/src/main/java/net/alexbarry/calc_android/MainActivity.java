@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                         updateNightMode(MainActivity.this);
                         MainActivity.this.recreate();
                     } else {
-                        Log.d(TAG, String.format("unhandled pref \"%s\"", key));
+                        Log.d(TAG, String.format("onSharedPreferenceChanged: unhandled pref \"%s\"", key));
                     }
                 }
             };

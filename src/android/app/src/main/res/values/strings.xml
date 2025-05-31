@@ -164,4 +164,15 @@ Terms of use: THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EX
 		By using this application you agree with its terms of use, available in the \"about\" section.
 	</string>
 	<string name="help">Help</string>
+
+    <string name="preference_key_haptics">haptics_preference</string>
+	<string name="haptic_pref_label">Haptic Preference</string>
+	<string name="haptic_pref_follow_system">Follow system</string>
+	<string name="haptic_pref_enabled">Enabled</string>
+	<string name="haptic_pref_disabled">Disabled</string>
+	<string-array name="haptic_pref_options">
+		<item>@string/haptic_pref_follow_system</item>
+		<item>@string/haptic_pref_enabled</item>
+		<item>@string/haptic_pref_disabled</item>
+	</string-array>
 </resources>

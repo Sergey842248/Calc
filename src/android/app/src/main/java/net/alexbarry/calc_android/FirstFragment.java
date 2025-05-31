@@ -392,6 +392,8 @@ public class FirstFragment extends Fragment {
 		SortedMap<String, String> vars = calcAndroid.getVars();
 		Log.i(TAG, "recvd vars" + vars);
 		varPopupHelper.setVars(vars);
+
+		initPrefs();
     }
 
     private void addToken(TokenType type, String token, boolean is_unit) {
@@ -641,6 +643,10 @@ public class FirstFragment extends Fragment {
 		unitSelectorHelper.updateRecentlyUsedUnits(calcData.recentlyUsedUnits);
 	}
 
+	void setHapticSetting(CalcButtonsHelper.HapticSetting hapticSetting) {
+		calcButtonsHelper.setHapticSetting(hapticSetting);
+	}
+
 	PersistentState getPersistentState() {
 		PersistentState state = new PersistentState();
 		CalcAndroid.CalcData calcData = calcAndroid.getCalcdata();
@@ -700,5 +706,20 @@ public class FirstFragment extends Fragment {
 				updateLatexWipDisplay();
 			}
 		}
+	}
+
+	private void initPrefs() {
+
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+		String hapticSettingStr = prefs.getString(getString(R.string.preference_key_haptics), getString(R.string.haptic_pref_follow_system));
+		CalcButtonsHelper.HapticSetting hapticSetting = CalcButtonsHelper.HapticSetting.FOLLOW_SYSTEM;
+
+		if (hapticSettingStr.equals(getString(R.string.haptic_pref_enabled))) {
+			hapticSetting = CalcButtonsHelper.HapticSetting.ENABLED;
+		} else if (hapticSettingStr.equals(getString(R.string.haptic_pref_disabled))) {
+			hapticSetting = CalcButtonsHelper.HapticSetting.DISABLED;
+		}
+
+		setHapticSetting(hapticSetting);
 	}
 }
