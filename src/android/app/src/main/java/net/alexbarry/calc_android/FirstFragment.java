@@ -456,7 +456,10 @@ public class FirstFragment extends Fragment {
 		try {
 			String input_str = calcInputHelper.get_input_str();
 			int input_pos = calcInputHelper.get_input_pos();
+			long startTime = System.currentTimeMillis();
 			String tex = calcAndroid.to_latex(input_str, true, input_pos);
+			long toLatexTimeMs = System.currentTimeMillis() - startTime;
+			Log.d(TAG, String.format("Generated LaTeX in %d ms", toLatexTimeMs));
 			calcOutputDisplayHelper.updateWipDisplay(tex);
 		} catch (Exception ex) {
 			calcOutputDisplayHelper.updateWipDisplay("\\text{err}");
