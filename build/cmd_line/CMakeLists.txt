@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4.1)
+cmake_minimum_required(VERSION 3.12.2)
 #include("src/calc_core/CMakeLists.txt")
 
 # So far this works by doing:
