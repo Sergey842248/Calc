@@ -1,3 +1,11 @@
+/**
+ * Currently this file is only used by the Android app, to fetch the list of units
+ * organized into categories in the "unit picker" UI popup.
+ *
+ * TODO it should be used by the HTML app, instead I think I just generated a big JSON
+ * and pasted it in the source code for now, and have manually tweaked it since then.
+ *
+ */
 #include <iostream>
 #include <sstream>
 #include "calc_units_organizer.h"
@@ -209,7 +217,7 @@ UnitGroup get_time_units(void) {
 	UnitGroup group("Time");
 	group.add_unit(UnitDescription::si_prefixable("second",          {"s"}));
 	group.add_unit(UnitDescription::no_prefix("minute",          {"minute", "min"}));
-	group.add_unit(UnitDescription::no_prefix("hour",            {"hr", "hour"}));
+	group.add_unit(UnitDescription::no_prefix("hour",            {"h", "hr", "hour"}));
 	group.add_unit(UnitDescription::no_prefix("day",             {"day"}));
 	group.add_unit(UnitDescription::no_prefix("month",           {"month"}));
 	group.add_unit(UnitDescription::no_prefix("year",            {"year", "yr"}));
@@ -267,6 +275,7 @@ UnitGroup get_energy_and_electricity_units(void) {
 	group.add_unit(UnitDescription::no_prefix("kilocalorie",     {"kcal"}));
 	group.add_unit(UnitDescription::no_prefix("British thermal unit", {"btu"}));
 	group.add_unit(UnitDescription::si_prefixable("Watt (Power)",    {"W"}));
+	group.add_unit(UnitDescription::si_prefixable("Watt hour (Energy)",    {"Wh"}));
 	group.add_unit(UnitDescription::no_prefix("horsepower",      {"hp"}));
 	//group.add_unit(UnitDescription::no_prefix("Watt hour",       {"W"}));
 	group.add_unit(UnitDescription::si_prefixable("Volt (Voltage)",       {"V"}));

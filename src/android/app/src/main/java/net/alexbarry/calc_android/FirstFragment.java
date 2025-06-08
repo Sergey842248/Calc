@@ -392,6 +392,8 @@ public class FirstFragment extends Fragment {
 		SortedMap<String, String> vars = calcAndroid.getVars();
 		Log.i(TAG, "recvd vars" + vars);
 		varPopupHelper.setVars(vars);
+
+		initPrefs();
     }
 
     private void addToken(TokenType type, String token, boolean is_unit) {
@@ -454,7 +456,10 @@ public class FirstFragment extends Fragment {
 		try {
 			String input_str = calcInputHelper.get_input_str();
 			int input_pos = calcInputHelper.get_input_pos();
+			long startTime = System.currentTimeMillis();
 			String tex = calcAndroid.to_latex(input_str, true, input_pos);
+			long toLatexTimeMs = System.currentTimeMillis() - startTime;
+			Log.d(TAG, String.format("Generated LaTeX in %d ms", toLatexTimeMs));
 			calcOutputDisplayHelper.updateWipDisplay(tex);
 		} catch (Exception ex) {
 			calcOutputDisplayHelper.updateWipDisplay("\\text{err}");
@@ -594,6 +599,9 @@ public class FirstFragment extends Fragment {
 		final String THEME_LIGHT = context.getString(R.string.colour_theme_light);
 		final String THEME_DARK = context.getString(R.string.colour_theme_dark);
 		final String THEME_VERYDARK = context.getString(R.string.colour_theme_verydark);
+		final String THEME_BLUE_W_ORANGE = context.getString(R.string.colour_theme_blue_w_orange);
+		final String THEME_MONOCHROME_W_RED = context.getString(R.string.colour_theme_monochrome_w_red);
+		final String THEME_DATED_YET_PRICEY = context.getString(R.string.colour_theme_dated_yet_pricey);
 
 		Log.i(TAG, String.format("theme is %s", themePrefString));
 
@@ -604,6 +612,9 @@ public class FirstFragment extends Fragment {
 		} else if (themePrefString.equals(THEME_LIGHT)) { return ThemeType.LIGHT; }
 		else if (themePrefString.equals(THEME_DARK)) { return ThemeType.DARK; }
 		else if (themePrefString.equals(THEME_VERYDARK)) { return ThemeType.VERYDARK; }
+		else if (themePrefString.equals(THEME_BLUE_W_ORANGE)) { return ThemeType.BLUE_W_ORANGE; }
+		else if (themePrefString.equals(THEME_MONOCHROME_W_RED)) { return ThemeType.MONOCHROME_W_RED; }
+		else if (themePrefString.equals(THEME_DATED_YET_PRICEY)) { return ThemeType.DATED_YET_PRICEY; }
 		else {
 			Log.e(TAG, String.format("unexpected theme pref %s", themePrefString));
 			return getSystemTheme(context);
@@ -639,6 +650,10 @@ public class FirstFragment extends Fragment {
 		varPopupHelper.setVars(state.vars);
 		//unitSelectorHelper.updateRecentlyUsedUnits(state.units);
 		unitSelectorHelper.updateRecentlyUsedUnits(calcData.recentlyUsedUnits);
+	}
+
+	void setHapticSetting(CalcButtonsHelper.HapticSetting hapticSetting) {
+		calcButtonsHelper.setHapticSetting(hapticSetting);
 	}
 
 	PersistentState getPersistentState() {
@@ -700,5 +715,20 @@ public class FirstFragment extends Fragment {
 				updateLatexWipDisplay();
 			}
 		}
+	}
+
+	private void initPrefs() {
+
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+		String hapticSettingStr = prefs.getString(getString(R.string.preference_key_haptics), getString(R.string.haptic_pref_follow_system));
+		CalcButtonsHelper.HapticSetting hapticSetting = CalcButtonsHelper.HapticSetting.FOLLOW_SYSTEM;
+
+		if (hapticSettingStr.equals(getString(R.string.haptic_pref_enabled))) {
+			hapticSetting = CalcButtonsHelper.HapticSetting.ENABLED;
+		} else if (hapticSettingStr.equals(getString(R.string.haptic_pref_disabled))) {
+			hapticSetting = CalcButtonsHelper.HapticSetting.DISABLED;
+		}
+
+		setHapticSetting(hapticSetting);
 	}
 }

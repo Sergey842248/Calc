@@ -99,6 +99,7 @@ std::unordered_map<std::string, bool> get_supported_latex_symbols(void) {
 //     \sqrt{x}
 static const std::unordered_map<std::string, std::string> latex_funcs = {
 	{"sqrt",   "\\sqrt"},
+	{"cbrt",   "\\sqrt[3]"},
 };
 
 // Keys in this map should be converted to the value in the map,

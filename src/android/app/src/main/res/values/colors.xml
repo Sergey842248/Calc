@@ -3,12 +3,16 @@
     <color name="colorPrimary">#4B4B9F</color>
     <color name="colorPrimaryDark">#26263E</color>
     <color name="colorAccent">#00AEFF</color>
+    <color name="color_transparent">#00FFFFFF</color>
+    <color name="primaryText">#000</color>
 
     <color name="windowBackground">#ffffff</color>
     <!--<color name="windowBackground">#e9e9ff</color>-->
     <color name="dialogBackground">@android:color/transparent</color>
 
 
+
+    <color name="input_text_bg">#f8f8f8</color>
 
     <color name="btn_default">#ddd</color>
     <color name="btn_text">#000</color>
@@ -35,6 +39,8 @@
     <!--<color name="colorAccent">#A70101</color>-->
     <color name="colorAccent_VeryDark">#3C55CC</color>
 
+    <color name="input_text_bg_very_dark">#111</color>
+
     <color name="btn_default_verydark">#181818</color>
     <color name="btn_text_verydark">#888</color>
     <color name="btn_important_verydark">#300</color>
@@ -44,4 +50,51 @@
     <color name="btn_op_verydark">#001</color>
     <color name="btn_specop_verydark">#001</color>
     <color name="btn_num_verydark">#282828</color>
+
+
+    <color name="colorPrimary_BlueWOrange">#00BCD4</color>
+    <color name="colorAccent_BlueWOrange">#85e8ff</color>
+    <color name="windowBackground_blue_w_orange">#e1d8cc</color>
+    <color name="btn_default_blue_w_orange">#d8d8df</color>
+    <color name="btn_text_blue_w_orange">#000</color>
+    <color name="btn_important_blue_w_orange">#ff7039</color>
+    <color name="btn_meta_blue_w_orange">#4776FF</color>
+    <color name="btn_text_meta_blue_w_orange">#fff</color>
+    <color name="btn_var_blue_w_orange">#DDFFF6</color>
+    <color name="btn_func_blue_w_orange">#DDFFF6</color>
+    <color name="btn_op_blue_w_orange">#DDFFF6</color>
+    <color name="btn_num_blue_w_orange">#70E9FF</color>
+
+    <color name="colorPrimary_MonochromeWRed">#414141</color>
+    <color name="colorAccent_MonochromeWRed">#a60000</color>
+    <color name="windowBackground_monochrome_w_red">#e1e1e1</color>
+    <color name="btn_default_monochrome_w_red">#d8d8df</color>
+    <color name="btn_text_monochrome_w_red">#000</color>
+    <color name="btn_important_monochrome_w_red">#a60000</color>
+    <color name="btn_text_important_monochrome_w_red">#fff</color>
+    <color name="btn_meta_monochrome_w_red">#666666</color>
+    <color name="btn_text_meta_monochrome_w_red">#fff</color>
+    <color name="btn_var_monochrome_w_red">#aaa</color>
+    <color name="btn_func_monochrome_w_red">#aaa</color>
+    <color name="btn_op_monochrome_w_red">#f0f0f0</color>
+    <color name="btn_num_monochrome_w_red">#d8d8df</color>
+
+    <color name="colorPrimary_dated_yet_pricey">#000</color>
+    <color name="colorAccent_dated_yet_pricey">#fff</color>
+    <color name="textColor_dated_yet_pricey">#fff</color>
+    <color name="windowBackground_dated_yet_pricey">#000</color>
+    <color name="outputBackground_dated_yet_pricey">#bbc494</color>
+    <color name="btn_default_dated_yet_pricey">#d8d8df</color>
+    <color name="btn_text_dated_yet_pricey">#000</color>
+    <color name="btn_important_dated_yet_pricey">#ff7800</color>
+    <color name="btn_text_important_dated_yet_pricey">#000</color>
+    <color name="btn_text_meta_dated_yet_pricey">#fff</color>
+    <color name="btn_meta_dated_yet_pricey">#5c68d5</color>
+    <color name="btn_var_dated_yet_pricey">#29804d</color>
+    <color name="btn_text_var_dated_yet_pricey">#fff</color>
+    <color name="btn_text_func_dated_yet_pricey">#fff</color>
+    <color name="btn_text_op_dated_yet_pricey">#fff</color>
+    <color name="btn_func_dated_yet_pricey">#484848</color>
+    <color name="btn_op_dated_yet_pricey">#5c68d5</color>
+    <color name="btn_num_dated_yet_pricey">#d8d8df</color>
 </resources>

@@ -50,6 +50,11 @@ But this requires installing the various dependencies: CMake, emscripten, typesc
 ### Android
 
 ```
+# This downloads MathJax to display the LaTeX in a WebView on android
+cd src/android/app/src/main/assets/html/
+npm install
+cd -
+
 cd src/android/
 ./gradlew build
 ```

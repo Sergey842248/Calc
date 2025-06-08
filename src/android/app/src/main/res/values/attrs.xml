@@ -2,12 +2,20 @@
 <resources>
     <attr name="windowBackground" format="color"/>
 
+    <attr name="outputDisplayBg" format="color"/>
+    <attr name="inputTextBg" format="color"/>
     <attr name="btnTextColour" format="color"/>
     <attr name="btnColourImportant" format="color"/>
+    <attr name="btnTextColourImportant" format="color"/>
     <attr name="btnColourMeta" format="color"/>
+    <attr name="btnTextColourMeta" format="color"/>
     <attr name="btnColourVar" format="color"/>
+    <attr name="btnTextColourVar" format="color"/>
     <attr name="btnColourFunc" format="color"/>
+    <attr name="btnTextColourFunc" format="color"/>
     <attr name="btnColourOp" format="color"/>
+    <attr name="btnTextColourOp" format="color"/>
     <attr name="btnColourSpecOp" format="color"/>
+    <attr name="btnTextColourSpecOp" format="color"/>
     <attr name="btnColourNum" format="color"/>
 </resources>

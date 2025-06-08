@@ -109,11 +109,17 @@
 	<string name="colour_theme_light">Light</string>
 	<string name="colour_theme_dark">Dark</string>
 	<string name="colour_theme_verydark">Very Dark</string>
+	<string name="colour_theme_blue_w_orange">Blue with orange</string>
+	<string name="colour_theme_monochrome_w_red">Monochrome with red</string>
+	<string name="colour_theme_dated_yet_pricey">Dated yet pricey</string>
 	<string-array name="colour_themes">
 		<item>@string/colour_theme_follow_system</item>
 		<item>@string/colour_theme_light</item>
 		<item>@string/colour_theme_dark</item>
 		<item>@string/colour_theme_verydark</item>
+		<item>@string/colour_theme_blue_w_orange</item>
+		<item>@string/colour_theme_monochrome_w_red</item>
+		<item>@string/colour_theme_dated_yet_pricey</item>
 	</string-array>
 
 	<string name="preference_key_theme_select">theme_select_preference</string>
@@ -164,4 +170,15 @@ Terms of use: THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EX
 		By using this application you agree with its terms of use, available in the \"about\" section.
 	</string>
 	<string name="help">Help</string>
+
+    <string name="preference_key_haptics">haptics_preference</string>
+	<string name="haptic_pref_label">Haptic Preference</string>
+	<string name="haptic_pref_follow_system">Follow system</string>
+	<string name="haptic_pref_enabled">Enabled</string>
+	<string name="haptic_pref_disabled">Disabled</string>
+	<string-array name="haptic_pref_options">
+		<item>@string/haptic_pref_follow_system</item>
+		<item>@string/haptic_pref_enabled</item>
+		<item>@string/haptic_pref_disabled</item>
+	</string-array>
 </resources>

@@ -3,6 +3,7 @@ package net.alexbarry.calc_android;
 import android.content.Context;
 import android.telecom.Call;
 import android.util.Log;
+import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.Button;
 
@@ -42,6 +43,12 @@ public class CalcButtonsHelper {
 		SET_DEGREES,
 		SET_RADIANS,
     }
+
+	public enum HapticSetting {
+		FOLLOW_SYSTEM,
+		ENABLED,
+		DISABLED,
+	}
 
 	public interface ButtonCallback {
 		public void onEvent(CallbackEvent event);
@@ -122,6 +129,8 @@ public class CalcButtonsHelper {
     private View view;
     private ButtonCallback callback;
 
+	private HapticSetting hapticSetting = HapticSetting.FOLLOW_SYSTEM;
+
     public CalcButtonsHelper(ButtonCallback callback) {
         this.callback = callback;
         button_id_to_android_layout_elem_id.put(ButtonId.CLEAR,         R.id.button_clear);
@@ -186,6 +195,11 @@ public class CalcButtonsHelper {
 		TokenInfo tanh  = new TokenInfo(TokenType.FUNC_CALL, "tanh(");
 		TokenInfo atanh = new TokenInfo(TokenType.FUNC_CALL, "atanh(");
 
+		TokenInfo sqrt  = new TokenInfo(TokenType.FUNC_CALL, "sqrt(");
+		TokenInfo pow2  = new TokenInfo(TokenType.OTHER,     "^2");
+		TokenInfo cbrt  = new TokenInfo(TokenType.FUNC_CALL, "cbrt(");
+		TokenInfo pow3  = new TokenInfo(TokenType.OTHER,     "^3");
+
 		// TODO these "TokenInfo" classes should also contain the button label, rather than having
 		// two separate maps for both
         button_id_to_token_func.put(ButtonId.LOG10,         getTokenInv(new TokenInfo(TokenType.FUNC_CALL, "log("), new TokenInfo(TokenType.OTHER, "10^(")));
@@ -202,7 +216,7 @@ public class CalcButtonsHelper {
         button_id_to_token_func.put(ButtonId.DELIM,         getTokenStateless(new TokenInfo(TokenType.OTHER,",")));
         button_id_to_token_func.put(ButtonId.RPAREN,        getTokenStateless(new TokenInfo(TokenType.PAREN_CLOSE,")")));
         button_id_to_token_func.put(ButtonId.DIV,           getTokenStateless(new TokenInfo(TokenType.OP,"/")));
-        button_id_to_token_func.put(ButtonId.SQRT,          getTokenInv(new TokenInfo(TokenType.FUNC_CALL,"sqrt("), new TokenInfo(TokenType.OTHER,"^2")));
+        button_id_to_token_func.put(ButtonId.SQRT,          getTokenInvAlt(sqrt, pow2, cbrt, pow3));
         button_id_to_token_func.put(ButtonId.MULT,          getTokenStateless(new TokenInfo(TokenType.OP,"*")));
         button_id_to_token_func.put(ButtonId.VAR1,          getTokenAlt(new TokenInfo(TokenType.VAR,"x"), new TokenInfo(TokenType.VAR,"y")));
         button_id_to_token_func.put(ButtonId.PI,            getTokenAlt(new TokenInfo(TokenType.VAR,"pi"), new TokenInfo(TokenType.VAR,"z")));
@@ -236,7 +250,7 @@ public class CalcButtonsHelper {
 		button_id_to_display_txt_func.put(ButtonId.COS,           getStringInv("cos", "acos"));
 		button_id_to_display_txt_func.put(ButtonId.TAN,           getStringInv("tan", "atan"));
         button_id_to_display_txt_func.put(ButtonId.LN,            getStringInv("ln", "e^x"));
-        button_id_to_display_txt_func.put(ButtonId.SQRT,          getStringInv("sqrt", "x^2"));
+        button_id_to_display_txt_func.put(ButtonId.SQRT,          getStringInvAlt("sqrt", "x^2", "cbrt", "x^3"));
         button_id_to_display_txt_func.put(ButtonId.VAR1,          getStringAlt("x", "y"));
         button_id_to_display_txt_func.put(ButtonId.PI,            getStringAlt("pi", "z"));
         button_id_to_display_txt_func.put(ButtonId.E,             getStringAlt("e", "theta"));
@@ -271,9 +285,23 @@ public class CalcButtonsHelper {
 		for (final ButtonId internal_btn_id : button_id_to_android_layout_elem_id.keySet()) {
 			Integer android_btn_id = button_id_to_android_layout_elem_id.get(internal_btn_id);
 			Button btn = (Button)view.findViewById(android_btn_id);
+			if (hapticSetting != HapticSetting.DISABLED) {
+				btn.setHapticFeedbackEnabled(true);
+			}
 			btn.setOnClickListener(new View.OnClickListener() {
 			    @Override
 				public void onClick(View v) {
+					if (hapticSetting != HapticSetting.DISABLED) {
+						int flags = 0;
+						switch (hapticSetting) {
+							case ENABLED: flags = HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING; break;
+
+							// May not need this, but I can't figure out how to enable the global setting
+							// on my phone
+							case FOLLOW_SYSTEM: flags = HapticFeedbackConstants.FLAG_IGNORE_VIEW_SETTING; break;
+						}
+						v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY, flags);
+					}
 					handleButtonEvent(internal_btn_id);
 				}
 			});
@@ -538,6 +566,11 @@ public class CalcButtonsHelper {
 		Button btn = (Button)view.findViewById(android_btn_id);
 		String btnText = context.getString(android_string_id);
 		btn.setText(btnText);
+	}
+
+	public void setHapticSetting(HapticSetting hapticSetting) {
+		Log.i(TAG, String.format("setHapticSetting is now %s", hapticSetting));
+		this.hapticSetting = hapticSetting;
 	}
 
 }
