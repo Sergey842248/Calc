@@ -162,6 +162,7 @@
         <item name="outputDisplayBg">@color/outputBackground_dated_yet_pricey</item>
         <item name="btnTextColour">@color/btn_text_dated_yet_pricey</item>
         <item name="btnColourImportant">@color/btn_important_dated_yet_pricey</item>
+        <item name="btnTextColourImportant">@color/btn_text_important_dated_yet_pricey</item>
         <item name="btnColourMeta">@color/btn_meta_dated_yet_pricey</item>
         <item name="btnTextColourMeta">@color/btn_text_meta_dated_yet_pricey</item>
         <item name="btnColourVar">@color/btn_var_dated_yet_pricey</item>
