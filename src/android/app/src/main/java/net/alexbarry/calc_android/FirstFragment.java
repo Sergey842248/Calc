@@ -599,6 +599,9 @@ public class FirstFragment extends Fragment {
 		final String THEME_LIGHT = context.getString(R.string.colour_theme_light);
 		final String THEME_DARK = context.getString(R.string.colour_theme_dark);
 		final String THEME_VERYDARK = context.getString(R.string.colour_theme_verydark);
+		final String THEME_BLUE_W_ORANGE = context.getString(R.string.colour_theme_blue_w_orange);
+		final String THEME_MONOCHROME_W_RED = context.getString(R.string.colour_theme_monochrome_w_red);
+		final String THEME_DATED_YET_PRICEY = context.getString(R.string.colour_theme_dated_yet_pricey);
 
 		Log.i(TAG, String.format("theme is %s", themePrefString));
 
@@ -609,6 +612,9 @@ public class FirstFragment extends Fragment {
 		} else if (themePrefString.equals(THEME_LIGHT)) { return ThemeType.LIGHT; }
 		else if (themePrefString.equals(THEME_DARK)) { return ThemeType.DARK; }
 		else if (themePrefString.equals(THEME_VERYDARK)) { return ThemeType.VERYDARK; }
+		else if (themePrefString.equals(THEME_BLUE_W_ORANGE)) { return ThemeType.BLUE_W_ORANGE; }
+		else if (themePrefString.equals(THEME_MONOCHROME_W_RED)) { return ThemeType.MONOCHROME_W_RED; }
+		else if (themePrefString.equals(THEME_DATED_YET_PRICEY)) { return ThemeType.DATED_YET_PRICEY; }
 		else {
 			Log.e(TAG, String.format("unexpected theme pref %s", themePrefString));
 			return getSystemTheme(context);

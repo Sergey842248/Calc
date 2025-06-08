@@ -109,11 +109,17 @@
 	<string name="colour_theme_light">Light</string>
 	<string name="colour_theme_dark">Dark</string>
 	<string name="colour_theme_verydark">Very Dark</string>
+	<string name="colour_theme_blue_w_orange">Blue with orange</string>
+	<string name="colour_theme_monochrome_w_red">Monochrome with red</string>
+	<string name="colour_theme_dated_yet_pricey">Dated yet pricey</string>
 	<string-array name="colour_themes">
 		<item>@string/colour_theme_follow_system</item>
 		<item>@string/colour_theme_light</item>
 		<item>@string/colour_theme_dark</item>
 		<item>@string/colour_theme_verydark</item>
+		<item>@string/colour_theme_blue_w_orange</item>
+		<item>@string/colour_theme_monochrome_w_red</item>
+		<item>@string/colour_theme_dated_yet_pricey</item>
 	</string-array>
 
 	<string name="preference_key_theme_select">theme_select_preference</string>

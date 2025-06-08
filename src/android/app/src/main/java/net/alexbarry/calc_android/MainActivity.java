@@ -191,6 +191,15 @@ public class MainActivity extends AppCompatActivity {
             case VERYDARK:
                 setTheme(R.style.Theme_VeryDark);
                 break;
+            case BLUE_W_ORANGE:
+                setTheme(R.style.Theme_BlueWOrange);
+                break;
+            case MONOCHROME_W_RED:
+                setTheme(R.style.Theme_MonochromeWRed);
+                break;
+            case DATED_YET_PRICEY:
+                setTheme(R.style.Theme_DatedYetPricey);
+                break;
         }
     }
 
@@ -198,11 +207,13 @@ public class MainActivity extends AppCompatActivity {
         ThemeType theme = FirstFragment.getDesiredTheme(context);
         switch(theme) {
             case LIGHT:
-            //case VERYDARK:
+            case BLUE_W_ORANGE:
+            case MONOCHROME_W_RED:
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 break;
             case DARK:
             case VERYDARK:
+            case DATED_YET_PRICEY:
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 break;
         }
