@@ -125,7 +125,8 @@
         <item name="android:layout_columnWeight">1</item>
         <item name="android:minWidth">0dip</item>
         <item name="android:padding">0dip</item>
-        <item name="android:background">@color/btn_num</item>
+        <!--<item name="android:background">@color/btn_num</item>-->
+        <item name="android:background">@drawable/rounded_button</item>
         <item name="android:layout_margin">2dip</item>
         <item name="android:textAllCaps">false</item>
         <item name="backgroundTint">@color/btn_default</item>
