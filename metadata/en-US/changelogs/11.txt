@@ -1,0 +1,5 @@
+* Add cube root button
+* Add some new colour schemes
+* Add units h, Wh, and Whr (previously could only do "W hr")
+* Add haptic feedback
+* fix "clear scrn" button that wasn't clearing the output display in Android
