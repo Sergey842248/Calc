@@ -974,6 +974,7 @@ const SUPPORTED_THEMES = [
 	"blue2",
 	"monochrome1",
 	"monochrome1-w-red",
+	"dated-yet-pricey",
 	"custom-colours",
 ];
 
