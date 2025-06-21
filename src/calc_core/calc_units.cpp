@@ -354,6 +354,7 @@ void add_non_standard_units(std::unordered_map<std::string, UnitInfoParsed> &uni
 	units["minute"]   = EXISTING_UNIT("minute", "min");
 	units["minutes"]  = EXISTING_UNIT("minutes", "min");
 	units["hr"]       = UnitInfoParsed("", "hr", 1, mult_units(60, units.at("min").unit));
+	units["h"]        = EXISTING_UNIT("h", "hr");
 	units["hour"]     = EXISTING_UNIT("hour", "hr");
 	units["hours"]    = EXISTING_UNIT("hours", "hr");
 	units["day"]      = UnitInfoParsed("", "day", 1, mult_units(24, units.at("hour").unit));
@@ -388,6 +389,8 @@ void add_non_standard_units(std::unordered_map<std::string, UnitInfoParsed> &uni
 	add_si_prefixes_of_unit(units, "g", mult_units(1e-3, units.at("kg").unit));
 
 	units["eV"] = UnitInfoParsed("", "eV", 1, mult_units(1.602e-19, units.at("J").unit));
+	units["Wh"]  = UnitInfoParsed("", "Wh",  1, mult_units(units.at("W").unit, units.at("h").unit));
+	units["Whr"] = UnitInfoParsed("", "Whr",  1, mult_units(units.at("W").unit, units.at("hr").unit));
 
 	// TODO move this to base SI units or a separate function
 	std::list<std::string> has_si_prefixes = std::list<std::string> {
@@ -418,6 +421,8 @@ void add_non_standard_units(std::unordered_map<std::string, UnitInfoParsed> &uni
 		"Sv", 
 
 		"eV", 
+		"Wh",
+		"Whr",
 	};
 
 	for (const auto &unit_name : has_si_prefixes) {

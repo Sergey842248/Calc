@@ -70,11 +70,14 @@
 			// Removed MathJax.texReset() as it was causing "Uncaught TypeError: MathJax.texReset is not a function"
 			var options = MathJax.getMetricsFor(arg_parent);
 			options.scale = 2.0;
+			MathJax.startup.output.clearCache();
 			return MathJax.tex2chtmlPromise(tex, options).then( (node) => {
 					arg_parent.appendChild(node);
-					MathJax.startup.document.clear();
-					MathJax.startup.document.updateDocument();
-                    return node; // Return the node so it can be used in the next .then()
+					const stylesheet = MathJax.chtmlStylesheet();
+					document.head.appendChild(stylesheet);
+					const output_elem = { elem: node, stylesheets: [stylesheet] };
+					console.log("add_latex_node_to_parent_promise returning output_elems", output_elems);
+					return output_elem;
 			});
 		}
 
@@ -99,10 +102,12 @@
             output_text_window.appendChild(output.elem);
             document.head.appendChild(output.stylesheet);
 */
-			add_latex_node_to_parent_promise(tex, output_text_window).then( (node) => {
-                output_elems.push({ elem: node, stylesheets: [] }); // Add the node to output_elems
+
+			add_latex_node_to_parent_promise(tex, output_text_window).then( (output_elem) => {
 				remove_output_display_elems(MAX_ELEMS);
 				scroll_to_bottom();
+				output_elems.push( output_elem );
+				console.log("add_latex_node_to_parent_promise, now output_elems is len", output_elems.length);
 			});
         }
 
@@ -133,6 +138,7 @@
 
 
         function remove_output_display_elems(keep_count) {
+            console.log("remove_output_display_elems: ", output_elems.length);
             while (output_elems.length > keep_count) {
                 var info = output_elems.shift();
                 for (var stylesheet of info.stylesheets) {

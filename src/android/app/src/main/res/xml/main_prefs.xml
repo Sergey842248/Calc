@@ -5,4 +5,9 @@
         android:title="@string/colour_theme_pref_label"
         android:entries="@array/colour_themes"
         android:entryValues="@array/colour_themes"/>
+    <ListPreference
+        android:key="@string/preference_key_haptics"
+        android:title="@string/haptic_pref_label"
+        android:entries="@array/haptic_pref_options"
+        android:entryValues="@array/haptic_pref_options"/>
 </PreferenceScreen>

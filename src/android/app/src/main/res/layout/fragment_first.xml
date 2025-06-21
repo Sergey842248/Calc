@@ -11,6 +11,7 @@
 			android:layout_height="0dp"
 			android:layout_width="match_parent"
 			android:layout_gravity="fill_horizontal"
+			style="@style/AlexCalcOutputDisplay"
 			app:layout_constraintHeight_min="75dp"
 			app:layout_constraintVertical_weight="1"
 			app:layout_constraintHeight_default="spread"
@@ -32,6 +33,7 @@
 			app:layout_constraintLeft_toLeftOf="parent"
 			app:layout_constraintTop_toBottomOf="@id/output_display_webivew"
 			app:layout_constraintBottom_toTopOf="@id/btn_grid"
+			style="@style/AlexCalcInputText"
 			android:inputType="text"
 			android:imeOptions="actionGo"
 			android:hint="@string/txt_input_hint" />

@@ -24,14 +24,21 @@
         <item name="android:dialogTheme">@style/MyMaterialAlertDialogBackground</item>
 
 
-
+        <item name="inputTextBg">@color/input_text_bg</item>
+        <item name="outputDisplayBg">@color/color_transparent</item>
         <item name="btnTextColour">@color/btn_text</item>
         <item name="btnColourImportant">@color/btn_important</item>
+        <item name="btnTextColourImportant">@color/btn_text</item>
         <item name="btnColourMeta">@color/btn_meta</item>
+        <item name="btnTextColourMeta">@color/btn_text</item>
         <item name="btnColourVar">@color/btn_var</item>
+        <item name="btnTextColourVar">@color/btn_text</item>
         <item name="btnColourFunc">@color/btn_func</item>
+        <item name="btnTextColourFunc">@color/btn_text</item>
         <item name="btnColourOp">@color/btn_op</item>
+        <item name="btnTextColourOp">@color/btn_text</item>
         <item name="btnColourSpecOp">@color/btn_specop</item>
+        <item name="btnTextColourSpecOp">@color/btn_text</item>
         <item name="btnColourNum">@color/btn_num</item>
     </style>
 
@@ -64,6 +71,7 @@
         <item name="colorPrimary">@color/colorPrimary_VeryDark</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark_VeryDark</item>
         <item name="colorAccent">@color/colorAccent_VeryDark</item>
+        <item name="outputDisplayBg">@color/color_transparent</item>
         <!-- TODO I may update this to be a darker shade of grey -->
         <item name="android:textColor">@color/btn_text_verydark</item>
 
@@ -71,14 +79,101 @@
         <item name="windowBackground">@color/windowBackground_verydark</item>
         <item name="android:windowBackground">@color/windowBackground_verydark</item>
 
+        <item name="inputTextBg">@color/input_text_bg_very_dark</item>
+
         <item name="btnTextColour">@color/btn_text_verydark</item>
         <item name="btnColourImportant">@color/btn_important_verydark</item>
+        <item name="btnTextColourImportant">@color/btn_text_verydark</item>
         <item name="btnColourMeta">@color/btn_meta_verydark</item>
+        <item name="btnTextColourMeta">@color/btn_text_verydark</item>
         <item name="btnColourVar">@color/btn_var_verydark</item>
+        <item name="btnTextColourVar">@color/btn_text_verydark</item>
         <item name="btnColourFunc">@color/btn_func_verydark</item>
+        <item name="btnTextColourFunc">@color/btn_text_verydark</item>
         <item name="btnColourOp">@color/btn_op_verydark</item>
+        <item name="btnTextColourOp">@color/btn_text_verydark</item>
         <item name="btnColourSpecOp">@color/btn_specop_verydark</item>
+        <item name="btnTextColourSpecOp">@color/btn_text_verydark</item>
         <item name="btnColourNum">@color/btn_num_verydark</item>
+    </style>
+
+    <style name="Theme_BlueWOrange" parent="AppTheme">
+        <item name="background">@color/colorPrimary_BlueWOrange</item>
+        <item name="colorPrimary">@color/colorPrimary_BlueWOrange</item>
+        <item name="colorAccent">@color/colorAccent_BlueWOrange</item>
+        <item name="android:textColor">@color/btn_text_blue_w_orange</item>
+
+        <item name="windowBackground">@color/windowBackground_blue_w_orange</item>
+        <item name="android:windowBackground">@color/windowBackground_blue_w_orange</item>
+
+        <item name="inputTextBg">@color/input_text_bg</item>
+        <item name="outputDisplayBg">@color/color_transparent</item>
+        <item name="btnTextColour">@color/btn_text_blue_w_orange</item>
+        <item name="btnColourImportant">@color/btn_important_blue_w_orange</item>
+        <item name="btnTextColourImportant">@color/btn_text_blue_w_orange</item>
+        <item name="btnColourMeta">@color/btn_meta_blue_w_orange</item>
+        <item name="btnTextColourMeta">@color/btn_text_meta_blue_w_orange</item>
+        <item name="btnColourVar">@color/btn_var_blue_w_orange</item>
+        <item name="btnTextColourVar">@color/btn_text_blue_w_orange</item>
+        <item name="btnColourFunc">@color/btn_func_blue_w_orange</item>
+        <item name="btnTextColourFunc">@color/btn_text_blue_w_orange</item>
+        <item name="btnColourOp">@color/btn_op_blue_w_orange</item>
+        <item name="btnTextColourOp">@color/btn_text_blue_w_orange</item>
+        <item name="btnColourSpecOp">@color/btn_op_blue_w_orange</item>
+        <item name="btnTextColourSpecOp">@color/btn_text_blue_w_orange</item>
+        <item name="btnColourNum">@color/btn_num_blue_w_orange</item>
+    </style>
+
+    <style name="Theme_MonochromeWRed" parent="AppTheme">
+        <item name="colorPrimary">@color/colorPrimary_MonochromeWRed</item>
+        <item name="colorAccent">@color/colorAccent_MonochromeWRed</item>
+        <item name="android:textColor">@color/btn_text_monochrome_w_red</item>
+
+        <item name="windowBackground">@color/windowBackground_monochrome_w_red</item>
+        <item name="android:windowBackground">@color/windowBackground_monochrome_w_red</item>
+
+        <item name="inputTextBg">@color/input_text_bg</item>
+        <item name="outputDisplayBg">@color/color_transparent</item>
+        <item name="btnTextColour">@color/btn_text_monochrome_w_red</item>
+        <item name="btnColourImportant">@color/btn_important_monochrome_w_red</item>
+        <item name="btnTextColourImportant">@color/btn_text_important_monochrome_w_red</item>
+        <item name="btnColourMeta">@color/btn_meta_monochrome_w_red</item>
+        <item name="btnTextColourMeta">@color/btn_text_meta_monochrome_w_red</item>
+        <item name="btnColourVar">@color/btn_var_monochrome_w_red</item>
+        <item name="btnTextColourVar">@color/btn_text_monochrome_w_red</item>
+        <item name="btnColourFunc">@color/btn_func_monochrome_w_red</item>
+        <item name="btnTextColourFunc">@color/btn_text_monochrome_w_red</item>
+        <item name="btnColourOp">@color/btn_op_monochrome_w_red</item>
+        <item name="btnTextColourOp">@color/btn_text_monochrome_w_red</item>
+        <item name="btnColourSpecOp">@color/btn_op_monochrome_w_red</item>
+        <item name="btnTextColourSpecOp">@color/btn_text_monochrome_w_red</item>
+        <item name="btnColourNum">@color/btn_num_monochrome_w_red</item>
+    </style>
+
+    <style name="Theme_DatedYetPricey" parent="AppTheme">
+        <item name="colorPrimary">@color/colorPrimary_dated_yet_pricey</item>
+        <item name="colorAccent">@color/colorAccent_dated_yet_pricey</item>
+        <item name="android:textColor">@color/textColor_dated_yet_pricey</item>
+
+        <item name="windowBackground">@color/windowBackground_dated_yet_pricey</item>
+        <item name="android:windowBackground">@color/windowBackground_dated_yet_pricey</item>
+
+        <item name="inputTextBg">@color/input_text_bg</item>
+        <item name="outputDisplayBg">@color/outputBackground_dated_yet_pricey</item>
+        <item name="btnTextColour">@color/btn_text_dated_yet_pricey</item>
+        <item name="btnColourImportant">@color/btn_important_dated_yet_pricey</item>
+        <item name="btnTextColourImportant">@color/btn_text_important_dated_yet_pricey</item>
+        <item name="btnColourMeta">@color/btn_meta_dated_yet_pricey</item>
+        <item name="btnTextColourMeta">@color/btn_text_meta_dated_yet_pricey</item>
+        <item name="btnColourVar">@color/btn_var_dated_yet_pricey</item>
+        <item name="btnTextColourVar">@color/btn_text_var_dated_yet_pricey</item>
+        <item name="btnColourFunc">@color/btn_func_dated_yet_pricey</item>
+        <item name="btnTextColourFunc">@color/btn_text_func_dated_yet_pricey</item>
+        <item name="btnColourOp">@color/btn_op_dated_yet_pricey</item>
+        <item name="btnTextColourOp">@color/btn_text_op_dated_yet_pricey</item>
+        <item name="btnColourSpecOp">@color/btn_op_dated_yet_pricey</item>
+        <item name="btnTextColourSpecOp">@color/btn_text_op_dated_yet_pricey</item>
+        <item name="btnColourNum">@color/btn_num_dated_yet_pricey</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -112,6 +207,18 @@
     <!-- This theme is only for UI buttons -->
     <style name="AppTheme.ButtonThemeDefault" parent="AppTheme.ButtonThemeBase">
         <item name="backgroundTint">@color/btn_default</item>
+        <item name="android:textColor">@color/btn_text</item>
+    </style>
+
+    <style name="AlexCalcOutputDisplay">
+        <item name="android:background">?outputDisplayBg</item>
+    </style>
+
+    <!--<style name="AlexCalcInputText" parent="ThemeOverlay.Material3.TextInputEditText">-->
+    <style name="AlexCalcInputText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">?inputTextBg</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <!-- This theme is only for buttons that appear in the calculator button grid -->
@@ -125,34 +232,42 @@
         <item name="android:layout_columnWeight">1</item>
         <item name="android:minWidth">0dip</item>
         <item name="android:padding">0dip</item>
-        <item name="android:background">@color/btn_num</item>
+        <!--<item name="android:background">@color/btn_num</item>-->
+        <item name="android:background">@drawable/rounded_button</item>
         <item name="android:layout_margin">2dip</item>
         <item name="android:textAllCaps">false</item>
         <item name="backgroundTint">@color/btn_default</item>
+        <item name="android:textColor">@color/btn_text</item>
     </style>
 
     <style name="AlexCalcButtonImportant" parent="AlexCalcButton">
         <item name="backgroundTint">?btnColourImportant</item>
+        <item name="android:textColor">?btnTextColourImportant</item>
     </style>
 
     <style name="AlexCalcButtonMeta" parent="AlexCalcButton">
         <item name="backgroundTint">?btnColourMeta</item>
+        <item name="android:textColor">?btnTextColourMeta</item>
     </style>
 
     <style name="AlexCalcButtonFunc" parent="AlexCalcButton">
         <item name="backgroundTint">?btnColourFunc</item>
+        <item name="android:textColor">?btnTextColourFunc</item>
     </style>
 
     <style name="AlexCalcButtonOp" parent="AlexCalcButton">
         <item name="backgroundTint">?btnColourOp</item>
+        <item name="android:textColor">?btnTextColourOp</item>
     </style>
 
     <style name="AlexCalcButtonVar" parent="AlexCalcButton">
         <item name="backgroundTint">?btnColourVar</item>
+        <item name="android:textColor">?btnTextColourVar</item>
     </style>
 
     <style name="AlexCalcButtonNum" parent="AlexCalcButton">
         <item name="backgroundTint">?btnColourNum</item>
+        <item name="android:textColor">?btnTextColour</item>
     </style>
 
     <style name="DefineNewVarButton" parent="AppTheme.ButtonThemeDefault">
@@ -167,6 +282,8 @@
         <item name="android:padding">0dip</item>
         <item name="android:layout_margin">2dip</item>
         <item name="android:textAllCaps">false</item>
+        <item name="backgroundTint">@color/btn_default</item>
+        <item name="android:textColor">@color/btn_text</item>
     </style>
 
     <style name="PopupTitle">

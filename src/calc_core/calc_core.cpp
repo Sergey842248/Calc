@@ -53,6 +53,7 @@ calc_func_t builtin_atan;
 val_t builtin_log10(val_t, bool);
 val_t builtin_ln(val_t, bool);
 val_t builtin_sqrt(val_t, bool);
+val_t builtin_cbrt(val_t, bool);
 val_t builtin_sin(val_t, bool);
 val_t builtin_cos(val_t, bool);
 val_t builtin_tan(val_t, bool);
@@ -120,6 +121,7 @@ static const std::unordered_map<std::string, calc_func_t> CONSTANT_FUNCS = std::
 	{"log",   builtin_log10},
 	{"ln",    builtin_ln},
 	{"sqrt",  builtin_sqrt},
+	{"cbrt",  builtin_cbrt},
 	{"sin",   builtin_sin},
 	{"cos",   builtin_cos},
 	{"tan",   builtin_tan},
@@ -210,17 +212,21 @@ std::string val_to_str(val_t val) {
 }
 #endif
 
-val_t builtin_sqrt(val_t arg, bool degree) {
-	(void)degree;
-
+val_t builtin_nth_root(val_t arg, int n) {
 	//return std::sqrt(arg);
 	calc_float_t mag, angle;
 	rect_to_polar(arg, &mag, &angle);
 
-	mag = std::sqrt(mag);
-	angle /= 2;
+	if (n == 2) {
+		mag = std::sqrt(mag);
+	} else if (n == 3) {
+		mag = std::cbrt(mag);
+	} else {
+		mag = std::pow(mag, 1.0/n);
+	}
+	angle /= n;
 
-	// take the positive square root
+	// take the positive root
 	if (angle < -M_PI/2 || angle > M_PI/2) {
 		angle += M_PI;
 	}
@@ -230,6 +236,18 @@ val_t builtin_sqrt(val_t arg, bool degree) {
 	result.unit_dim = sqrt_unit(arg.unit_dim);
 	return result;
 }
+
+val_t builtin_sqrt(val_t arg, bool degree) {
+	(void)degree;
+	return builtin_nth_root(arg, 2);
+}
+
+val_t builtin_cbrt(val_t arg, bool degree) {
+	(void)degree;
+	return builtin_nth_root(arg, 3);
+}
+
+
 
 val_t re_func(calc_float_t (*func)(calc_float_t), val_t arg, std::string name) {
 	if (arg.im != 0) {
