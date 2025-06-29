@@ -1,0 +1,116 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+// TODO make keystore properties optional, and only required if building a signed build
+/*
+def keystorePropertiesFile=rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+*/
+
+android {
+    compileSdkVersion 34
+	// I am not impressed that at first, Android Studio dumped the passwords here in
+	// plaintext.
+
+// TODO make an unsigned build the default?
+/*
+    signingConfigs {
+        release {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+    }
+*/
+    ndkVersion '21.2.6472646'
+
+    defaultConfig {
+        applicationId "net.sergey842248.calc"
+        minSdkVersion 23
+        targetSdkVersion 34
+        versionCode 10
+        versionName "1.1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // TODO make an unsigned build the default?
+            //signingConfig signingConfigs.release
+            ndk {
+                debugSymbolLevel 'FULL'
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            version "3.22.1"
+            path "src/main/cpp/CMakeLists.txt"
+
+			// TODO does cppFlags here work?
+			// cppFlags "-Werror"
+
+			// Specifying external directory for native build files because they get big
+			// and I'm running out of room in my cloud storage backup
+			//buildStagingDirectory "C:/tmp/android_native_build/calc/"
+        }
+    }
+
+    flavorDimensions 'cpuArch'
+    productFlavors {
+        arm8 {
+            dimension 'cpuArch'
+            ndk {
+                abiFilters 'arm64-v8a', 'armeabi-v7a'
+            }
+        }
+        x86_64 {
+            dimension 'cpuArch'
+            ndk {
+                abiFilters 'x86_64', 'x86'
+            }
+        }
+        universal {
+            dimension 'cpuArch'
+            // include all default ABIs. with NDK-r16,  it is:
+            //   armeabi-v7a, arm64-v8a, x86, x86_64
+        }
+    }
+    namespace 'net.alexbarry.calc_android'
+}
+
+apply plugin: 'com.mikepenz.aboutlibraries.plugin'
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        //maven { url "https://maven.google.com" }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+    dependencies {
+        classpath "com.mikepenz.aboutlibraries.plugin:aboutlibraries-plugin:11.2.1"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.navigation:navigation-fragment:2.3.5'
+    implementation 'androidx.navigation:navigation-ui:2.0.0'
+    implementation 'androidx.preference:preference:1.1.1'
+    testImplementation 'junit:junit:4.12'
+    implementation "com.mikepenz:aboutlibraries-core:11.2.1"
+    implementation "com.mikepenz:aboutlibraries:11.2.1"
+    implementation 'com.google.android.material:material:1.8.0'
+}
